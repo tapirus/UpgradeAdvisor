@@ -488,7 +488,7 @@ component output="false" {
     if (local.controllerContent does not contain "protectFromForgery(") {
       local.rv.success = false;
       ArrayAppend(local.rv.messages, {
-        message="It's recommended that you use the <code>protectFromForgery()</code> in the <code>init()</code> function of <code>#_pathFormat(local.controllerFilePath)#</code>"
+        message="It's recommended that you use the <code>protectFromForgery()</code> in the <code>config()</code> function of <code>#_pathFormat(local.controllerFilePath)#</code>"
       });
     }
 
@@ -498,7 +498,7 @@ component output="false" {
         local.content = FileRead(local.i);
         // csrfMetaTags(
         local.containsMetaTags = false;
-        if (local.content contains "csrfMetaTags(") {
+        if (local.content contains "csrfMetaTags()") {
           local.containsMetaTags = false;
           break;
         }
@@ -506,7 +506,7 @@ component output="false" {
       if (!local.containsMetaTags) {
         local.rv.success = false;
         ArrayAppend(local.rv.messages, {
-          message="It's recommended that you use the <code>csrfMetaTags(</code> in your <code>layout.cfm</code></code>"
+          message="It's recommended that you use the <code>csrfMetaTags()</code> in your <code>layout.cfm</code></code>"
         });
         local.rv.href="https://github.com/liquifusion/cfwheels-csrf-protection";
       }
