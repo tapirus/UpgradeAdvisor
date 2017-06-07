@@ -496,7 +496,7 @@ component output="false" {
       local.allFiles = DirectoryList(local.viewDirectoryPath, true, "path", "*.cfm");
       for (local.i in local.allFiles) {
         local.content = FileRead(local.i);
-        // csrfMetaTags(
+        // csrfMetaTags()
         local.containsMetaTags = false;
         if (local.content contains "csrfMetaTags(") {
           local.containsMetaTags = false;
