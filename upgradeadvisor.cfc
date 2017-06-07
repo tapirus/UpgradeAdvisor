@@ -550,7 +550,7 @@ component output="false" {
    */
   public struct function adviseOfRootLocalScope() {
     local.rv = {
-      name="Redunant Loc Scope",
+      name="Redundant Loc Scope",
       success=true,
       href="",
       messages=[]
